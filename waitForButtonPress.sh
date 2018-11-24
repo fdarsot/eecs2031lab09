@@ -8,7 +8,7 @@
 #pressed and then released
 
 pinVal=$( gpio read 5 ); #here  we read the button and save the value
-
+pressed=1; #not pressed by default
 while true
 do
 		
@@ -17,6 +17,8 @@ do
 		until [ $pinVal -eq 0 ] #until the pin value changes, keep looping
 		do
 			echo $pinVal;
+			pressed=0
+			export pressed;
 			pinVal=$( gpio read 5 )
 		done
 		
@@ -29,6 +31,8 @@ do
 		until [ $pinVal -eq 1 ] #until the pin value changes, keep looping
 		do
 			echo $pinVal;
+			pressed=1
+			export pressed;			
 			pinVal=$( gpio read 5 )
 		done
 		

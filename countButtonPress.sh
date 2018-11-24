@@ -6,7 +6,6 @@ pinVal=$( gpio read 5 ); #here  we read the button and save the value
 
 	until [ $COUNTER -eq 16 ]
 	do
-		#echo $pinVal; 
 		#sleep .5s;
 		pinVal=$( gpio read 5 ); #here  we read the button and save the value
 		sleep .1s;
